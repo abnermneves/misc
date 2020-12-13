@@ -125,5 +125,6 @@ public class montapalavras {
         for (Palavra p : palavrasPossiveis){
             System.out.println(p.getPalavra());
         }
+        System.out.println(letras);
     }
 }
