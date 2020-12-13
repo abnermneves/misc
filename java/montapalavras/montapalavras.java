@@ -8,26 +8,31 @@ class Palavra {
     private String palavra;
     private int pontos;
 
+    Palavra(String palavra, int pontos){
+        this.palavra = palavra;
+        this.pontos = pontos;
+    }
+
     void setPalavra(String palavra){
-        this->palavra = palavra;
+        this.palavra = palavra;
     }
 
     void setPontos(int pontos){
-        this-> pontos = pontos;
+        this.pontos = pontos;
     }
 
     public String getPalavra(){
-        return this->palavra;
+        return this.palavra;
     }
 
     public int getPontos(){
-        return this->pontos;
+        return this.pontos;
     }
 }
 
 public class montapalavras {
     public static void main (String args[]){
-        List<String> palavras = new ArrayList<String>();
+        List<Palavra> palavras = new ArrayList<Palavra>();
 
         // lendo arquivo com banco de palavras
         try {
@@ -37,10 +42,11 @@ public class montapalavras {
                 String palavra = reader.next();
                 palavra = palavra.replace("\"", "");
                 palavra = palavra.replace(",", "");
-                palavras.add(palavra);
+                palavras.add(new Palavra(palavra, 0));
             }
-            for (String p : palavras){
-                System.out.println(p);
+
+            for (Palavra p : palavras){
+                System.out.println(p.getPalavra() + ", " + p.getPontos());
             }
         } catch (FileNotFoundException e){
             System.out.println("Erro ao ler arquivo.");
