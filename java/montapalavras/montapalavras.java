@@ -90,8 +90,7 @@ public class montapalavras {
         // lendo a sequência de letras
         Scanner s = new Scanner(System.in);
         String letras = s.nextLine();
-        letras = Normalizer.normalize(letras, Normalizer.Form.NFD)
-                           .replaceAll("[^\\p{ASCII}]", "");
+        letras = Normalizer.normalize(letras, Normalizer.Form.NFD);
         letras = letras.toLowerCase();
         System.out.println(letras);
 
@@ -118,8 +117,22 @@ public class montapalavras {
                 }
             }
             if (possivel){
-                palavrasPossiveis.add(p);
+                if (palavrasPossiveis.size() > 0){
+                    if (p.getPontos() >= palavrasPossiveis.get(0).getPontos()){
+                        palavrasPossiveis.add(p);
+                    }
+                    if (p.getPontos() > palavrasPossiveis.get(0).getPontos()){
+                        palavrasPossiveis.remove(0);
+                    }
+                } else {
+                    palavrasPossiveis.add(p);
+                }
             }
+        }
+
+        // ----------------------------- DESEMPATE ----------------------- //
+        if (palavrasPossiveis.size() > 1){
+            
         }
 
         for (Palavra p : palavrasPossiveis){
