@@ -1,0 +1,3 @@
+Para rodar, basta executar no terminal o comando
+
+java montapalavras
