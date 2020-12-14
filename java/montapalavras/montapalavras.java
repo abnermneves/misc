@@ -95,6 +95,7 @@ public class montapalavras {
         System.out.println(letras);
 
         List<Palavra> palavrasPossiveis = new ArrayList<Palavra>();
+        Palavra palavraMontada = null;
 
         for (Palavra p : palavras){
             //ordena os caracteres em ordem alfabética
@@ -128,11 +129,15 @@ public class montapalavras {
                     palavrasPossiveis.add(p);
                 }
             }
+            System.out.println(palavraMontada != null);
         }
 
         // ----------------------------- DESEMPATE ----------------------- //
         if (palavrasPossiveis.size() > 1){
-            
+            //int m
+            for (Palavra p : palavrasPossiveis){
+
+            }
         }
 
         for (Palavra p : palavrasPossiveis){
